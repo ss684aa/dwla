@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:cluster="http://www.mulesoft.org/schema/mule/ee/cluster" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd">
+    <configuration doc:name="Configuration">
+        <http:config useTransportForUris="false"/>
+    </configuration>
+   <!--  <property-placeholder location="es-dev.properties"/> -->
+    
+    <flow name="complextransformationFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/complex" doc:name="HTTP"/>
+        <set-variable variableName="brand" value="#[message.inboundProperties.'http.query.params'.brand]" doc:name="Variable"/>
+        <set-session-variable variableName="brand" value="#['Dell']" doc:name="Session Variable"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:input-payload doc:sample="sample_data\json_5.json"/>
+            <dw:input-inbound-property doc:sample="sample_data\map_string_string.dwl" propertyName="http.query.params"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+%function cvalue(val) {
+	return: val*100
+}
+---
+
+products:{
+	(
+	(payload map (prod)-> {
+		
+		product:{
+			prodId:prod.productId,
+			prodDesc:prod.ProductDesc,
+			brand:prod.brand,
+			originalPrice:cvalue(prod.originalPrice),
+			offer:{
+				offerPrice:prod.offer.offerPrie,
+				offerValid:prod.offer.offerValid
+			}
+		}
+		
+		
+	}) filter $.product.brand == sessionVars['brand']
+	)
+}]]></dw:set-payload>
+        </dw:transform-message>
+    </flow>
+</mule>

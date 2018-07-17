@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<products>
+  <product>
+    <productId>1001</productId>
+    <productDesc>Dell studio</productDesc>
+    <brand>Dell</brand>
+    <offer>
+      <offerPrice>58500</offerPrice>
+    </offer>
+    <images>
+      <image>image1.jpeg</image>
+      <image>image2.jpeg</image>
+    </images>
+  </product>
+  <product>
+    <productId>1002</productId>
+    <productDesc>Dell inspiron</productDesc>
+    <brand>Dell</brand>
+    <offer>
+      <offerPrice>61750</offerPrice>
+    </offer>
+    <images>
+      <image>image3.jpeg</image>
+      <image>image4.jpeg</image>
+    </images>
+  </product>
+  <product>
+    <productId>2001</productId>
+    <productDesc>HP Pavilion</productDesc>
+    <brand>HP</brand>
+    <offer>
+      <offerPrice>65000</offerPrice>
+    </offer>
+    <images>
+      <image>image5.jpeg</image>
+      <image>image6.jpeg</image>
+    </images>
+  </product>
+  <product>
+    <productId>2002</productId>
+    <productDesc>HP Thinkpad</productDesc>
+    <brand>HP</brand>
+    <offer>
+      <offerPrice>58500</offerPrice>
+    </offer>
+    <images>
+      <image>image7.jpeg</image>
+      <image>image8.jpeg</image>
+    </images>
+  </product>
+  <product>
+    <productId>3001</productId>
+    <productDesc>Apple mac</productDesc>
+    <brand>Apple</brand>
+    <offer>
+      <offerPrice>91000</offerPrice>
+    </offer>
+    <images>
+      <image>image9.jpeg</image>
+      <image>image10.jpeg</image>
+    </images>
+  </product>
+</products>

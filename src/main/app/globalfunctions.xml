@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd">
+   
+   
+     
+    <flow name="globalfunctionsFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/globalFunctions" doc:name="HTTP"/>
+        <logger message="Request Received by Gloabl Functions======" level="INFO" doc:name="Logger"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:input-payload doc:sample="sample_data\json_13.json"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+//%var currency=lookup('flowName','US')
+%var currency=getCurrencyByCountry('US')
+%function getConvertedPrice(price) price*currency
+---
+prodcuts:{
+	
+	
+		(payload map (prod) -> {
+		
+		product:{
+			
+			productId:prod.productId,
+			productDesc:prod.ProductDesc,
+			brand:prod.brand,
+			originalPrice:getConvertedPrice(prod.originalPrice),
+			offer:{
+				
+				offerPrice:prod.offer.offerPrie,
+				offerValid:prod.offer.offerValid
+				
+			}
+		}
+		
+		
+	}) 		
+	
+	
+}]]></dw:set-payload>
+        </dw:transform-message>
+    </flow>
+</mule>

@@ -1,0 +1,55 @@
+[
+{
+  "productId": 1001,
+  "ProductDesc": "Dell studio",
+  "brand": "Dell",
+  "originalPrice": 1050,
+  "offer": {
+    "offerPrie": 900,
+    "offerValid": "31032018"
+  }
+},
+
+{
+  "productId": 1002,
+  "ProductDesc": "Dell inspiron",
+  "brand": "Dell",
+  "originalPrice": 1000,
+  "offer": {
+    "offerPrie": 950,
+    "offerValid": "31032018"
+  }
+},
+{
+  "productId": 2001,
+  "ProductDesc": "HP Pavilion",
+  "brand": "HP",
+  "originalPrice": 1100,
+  "offer": {
+    "offerPrie": 1000,
+    "offerValid": "31032018"
+  }
+},
+{
+  "productId": 2002
+  "ProductDesc": "HP Thinkpad",
+  "brand": "HP",
+  "originalPrice": 1000,
+  "offer": {
+    "offerPrie": 900,
+    "offerValid": "31032018"
+  }
+},
+{
+  "productId": 3001,
+  "ProductDesc": "Apple mac",
+  "brand": "Apple",
+  "originalPrice": 1500,
+  "offer": {
+    "offerPrie": 1400,
+    "offerValid": "31032018"
+  }
+}
+
+
+]

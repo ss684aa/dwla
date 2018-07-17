@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<products>
+  <product>
+    <producId>1001</producId>
+    <productDesc>Dell studio</productDesc>
+    <brand>Dell</brand>
+    <orignalPrice>68250</orignalPrice>
+    <offer>
+      <offerPrice>900</offerPrice>
+      <offerValid>31032018</offerValid>
+    </offer>
+    <images>
+      <image>DellstudioImage</image>
+    </images>
+  </product>
+  <product>
+    <producId>1002</producId>
+    <productDesc>Dell inspiron</productDesc>
+    <brand>Dell</brand>
+    <orignalPrice>65000</orignalPrice>
+    <offer>
+      <offerPrice>950</offerPrice>
+      <offerValid>31032018</offerValid>
+    </offer>
+    <images>
+      <image>DellinspironImage</image>
+    </images>
+  </product>
+  <product>
+    <producId>2001</producId>
+    <productDesc>HP Pavilion</productDesc>
+    <brand>HP</brand>
+    <orignalPrice>71500</orignalPrice>
+    <offer>
+      <offerPrice>1000</offerPrice>
+      <offerValid>31032018</offerValid>
+    </offer>
+    <images>
+      <image>HPPavilionImage</image>
+    </images>
+  </product>
+  <product>
+    <producId>2002</producId>
+    <productDesc>HP Thinkpad</productDesc>
+    <brand>HP</brand>
+    <orignalPrice>65000</orignalPrice>
+    <offer>
+      <offerPrice>900</offerPrice>
+      <offerValid>31032018</offerValid>
+    </offer>
+    <images>
+      <image>HP Thinkpad ProductImage</image>
+    </images>
+  </product>
+  <product>
+    <producId>3001</producId>
+    <productDesc>Apple mac</productDesc>
+    <brand>Apple</brand>
+    <orignalPrice>97500</orignalPrice>
+    <offer>
+      <offerPrice>1400</offerPrice>
+      <offerValid>31052018</offerValid>
+    </offer>
+    <images>
+      <image>AppleProductImage</image>
+    </images>
+  </product>
+</products>
